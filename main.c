@@ -21,12 +21,10 @@ char getGrade(int score){
     else if (score >= 50) return 'D';
     else return 'F';
 }
-
-int main(void) {
     const char *sem1_codes[] = {
         "TEMB 1101", "TEMB 1102", "TEMB 1103", "TEMB 1104", "TEMB 1105", "TEMB 1106", "TEMB 1107", "TEMB 1108"
     };
-    const char *sem1_names[] = {  //  Added =
+    const char *sem1_names[] = {  // ✅ Added =
         "Fundamentals of Engineering Mathematics",
         "Biochemistry and Medical Physics",
         "Electrical Engineering Science",
@@ -56,7 +54,7 @@ int main(void) {
 
     int sem1_scores[8], sem2_scores[8];
     int i;
-    // Removed stray };
+    // ✅ Removed stray };
 
     printf("=== Enter Semester I Scores ===\n");
     for (i = 0; i < 8; i++) {
@@ -70,7 +68,7 @@ int main(void) {
         scanf("%d", &sem2_scores[i]);
     }
 
-    //  Validate all scores inside loops
+    // ✅ Validate all scores inside loops
     for (i = 0; i < 8; i++) {
         if (sem1_scores[i] < 0 || sem1_scores[i] > 100) {
             printf("Invalid score entered\n");
@@ -116,9 +114,9 @@ int main(void) {
     int total_weighted = sem1_weighted_sum + sem2_weighted_sum;
     double cgpa = (double)total_weighted / total_credits;
 
-    // Moved GPA calculations after variables are declared
+    // ✅ Moved GPA calculations after variables are declared
     double sem1_gpa = (double)sem1_weighted_sum / sem1_total_credits;
-    double sem2_gpa = (double)sem2_weighted_sum / sem2_total_credits;  // Fixed typo
+    double sem2_gpa = (double)sem2_weighted_sum / sem2_total_credits;  // ✅ Fixed typo
 
     /* Determine classification */
     const char *classification;
@@ -172,5 +170,6 @@ int main(void) {
     printf("CGPA: %.2f\n", cgpa);
     printf("Classification: %s\n", classification);
     printf(".......................................................................\n");
+
     return 0;
 }
